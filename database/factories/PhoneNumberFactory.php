@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Contact;
-use App\Models\Phone_Number;
+use App\Models\PhoneNumber;
 
 class PhoneNumberFactory extends Factory
 {

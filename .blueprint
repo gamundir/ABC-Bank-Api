@@ -2,15 +2,15 @@ created:
     - database/factories/ContactFactory.php
     - database/factories/AddressFactory.php
     - database/factories/PhoneNumberFactory.php
-    - database/migrations/2023_05_02_185455_create_contacts_table.php
-    - database/migrations/2023_05_02_185456_create_addresses_table.php
-    - database/migrations/2023_05_02_185457_create_phone__numbers_table.php
+    - database/migrations/2023_05_02_191943_create_contacts_table.php
+    - database/migrations/2023_05_02_191944_create_addresses_table.php
+    - database/migrations/2023_05_02_191945_create_phone_numbers_table.php
     - app/Models/Contact.php
     - app/Models/Address.php
-    - app/Models/Phone_Number.php
+    - app/Models/PhoneNumber.php
     - database/seeders/ContactSeeder.php
 models:
+    PhoneNumber: { contact_id: id, phone_number: string }
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
     Contact: { first_name: string, last_name: string, date_of_birth: string, personal_photo: string, relationships: { hasMany: 'Address, Phone_Number' } }
     Address: { contact_id: id, address: string }
-    Phone_Number: { contact_id: id, phone_number: string }

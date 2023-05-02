@@ -9,7 +9,7 @@ models:
   Address:
     contact_id: id
     address: string
-  Phone_Number:
+  PhoneNumber:
     contact_id: id
     phone_number: string
 

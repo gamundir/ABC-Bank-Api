@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::create('phone__numbers', function (Blueprint $table) {
+        Schema::create('phone_numbers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('contact_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('phone_number');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('phone__numbers');
+        Schema::dropIfExists('phone_numbers');
     }
 };
