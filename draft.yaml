@@ -1,0 +1,16 @@
+models:
+  Contact:
+    first_name: string
+    last_name: string
+    date_of_birth: string
+    personal_photo: string
+    relationships:
+      hasMany: Address, Phone_Number
+  Address:
+    contact_id: id
+    address: string
+  Phone_Number:
+    contact_id: id
+    phone_number: string
+
+seeders: Contact
