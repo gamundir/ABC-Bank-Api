@@ -22,8 +22,8 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         return [
-            'contact_id' => Contact::factory(),
-            'address' => $this->faker->word,
+            'contact_id' => $this->faker->numberBetween(1,20),
+            'address' => $this->faker->address,
         ];
     }
 }

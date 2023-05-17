@@ -23,8 +23,8 @@ class ContactFactory extends Factory
         return [
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
-            'date_of_birth' => $this->faker->word,
-            'personal_photo' => $this->faker->word,
+            'date_of_birth' => $this->faker->date,
+            'personal_photo' => $this->faker->url,
         ];
     }
 }

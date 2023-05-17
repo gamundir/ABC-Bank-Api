@@ -22,8 +22,8 @@ class PhoneNumberFactory extends Factory
     public function definition(): array
     {
         return [
-            'contact_id' => Contact::factory(),
-            'phone_number' => $this->faker->phoneNumber,
+            'contact_id' => $this->faker->numberBetween(1,20),
+            'phone_number' => $this->faker->e164PhoneNumber,
         ];
     }
 }
