@@ -22,7 +22,7 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         return [
-            'contact_id' => $this->faker->numberBetween(1,20),
+            'contact_id' => $this->faker->numberBetween(1,10),
             'address' => $this->faker->address,
         ];
     }

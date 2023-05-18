@@ -22,7 +22,7 @@ class PhoneNumberController extends Controller
      */
     public function store(Request $request)
     {
-        $phoneNumber = Address::create($request->input());
+        $phoneNumber = PhoneNumber::create($request->input());
         return response()->json($phoneNumber);
     }
 
@@ -38,8 +38,9 @@ class PhoneNumberController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PhoneNumber $phoneNumber)
+    public function update(Request $request, string $id)
     {
+        $phoneNumber = PhoneNumber::find($id);
         $phoneNumber->update($request->input());
         return response()->json($phoneNumber);
     }
