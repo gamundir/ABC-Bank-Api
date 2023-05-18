@@ -25,3 +25,4 @@ Route::apiResource('addresses', AddressController::class);
 Route::apiResource('phonenumbers', PhoneNumberController::class);
 Route::apiResource('contacts', ContactController::class);
 Route::get('search', [ContactController::class, 'search']);
+Route::get('ageRange', [ContactController::class, 'ageRange']);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ContactController extends Controller
 {
@@ -77,7 +78,25 @@ class ContactController extends Controller
                       $subQuery->where('address', 'LIKE', "%$q%");
                   });
         }
-        $contacts = $query->get();
+        $contacts = $query->with('addresses:id,address,contact_id')->get();
         return response()->json($contacts);
+    }
+    public function ageRange(Request $request)
+    {
+        $query = Contact::query();
+
+        if ($request->has('from')) {
+            $fromDate = Carbon::now()->subYears($request->from)->toDateString();
+            $query->where('date_of_birth', '<=', $fromDate);
+        }
+
+        if ($request->has('to')) {
+            $toDate = Carbon::now()->subYears($request->to + 1)->toDateString();
+            $query->where('date_of_birth', '>=', $toDate);
+        }
+
+        $contacts = $query->get();
+
+        return response()->json(['status' => 'success', 'data' => $contacts]);
     }
 }
